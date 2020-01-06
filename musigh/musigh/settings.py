@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
+from dotenv import load_dotenv
+from pathlib import Path  # python3 only
+import os
 
+load_dotenv(dotenv_path='../../.env')
 # Scrapy settings for musigh project
 #
 # For simplicity, this file contains only settings considered important or
@@ -68,7 +72,7 @@ ITEM_PIPELINES = {
     #'scrapy.pipelines.files.FilesPipeline': 1,
     'musigh.pipelines.MusighPipeline': 1,
 }
-FILES_STORE = 'C:/Users/biapt/Music/musigh'
+#FILES_STORE = 'C:/Users/biapt/Music/musigh'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -93,3 +97,6 @@ FILES_STORE = 'C:/Users/biapt/Music/musigh'
 
 # AWS S3 storage
 # this should be hidden
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+FILES_STORE = os.getenv("FILES_STORE_MUSIGH")
