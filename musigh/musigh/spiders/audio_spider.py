@@ -5,10 +5,8 @@ class MusicItem(scrapy.Item):
     files = scrapy.Field()
     file_name = scrapy.Field()
 
-class PubmedSpider(scrapy.Spider):
+class MusighSpider(scrapy.Spider):
     name = "audio"
-    num_songs = 0
-    max_songs = 100
     start_urls = ['http://musigh.com/']
 
     # Now we will parse all the pages for ever until we hit a 404
@@ -16,9 +14,6 @@ class PubmedSpider(scrapy.Spider):
         # Get all link to music
         audio_links = response.css('audio source::attr(src)').getall()
         for audio_link in audio_links:
-            self.num_songs = self.num_songs + 1
-            if self.num_songs > self.max_songs:
-                return {}
             yield self.parse_item(audio_link)
     
         # Get the next url
