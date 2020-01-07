@@ -56,7 +56,6 @@ class PCPartSpider(scrapy.Spider):
     
     def parse_cpu(self, response):
         # Default values
-        title = ''
         manufacturer = ''
         model = ''
         part_id = ''
@@ -78,7 +77,6 @@ class PCPartSpider(scrapy.Spider):
         lithography = ''
         simultaneous_multithreading = ''
 
-        title = response.css('h1.pageTitle::text').get()
 
         specs = response.css("div.specs").getall()
         if len(specs) > 0:
@@ -89,7 +87,6 @@ class PCPartSpider(scrapy.Spider):
 
 
         scraped_info = {
-            'title' : title,
             'manufacturer' : manufacturer,
             'model' : model,
             'part_id' : part_id,

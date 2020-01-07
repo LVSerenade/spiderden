@@ -89,4 +89,4 @@ AUTOTHROTTLE_MAX_DELAY = 60
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 FEED_FORMAT="csv"
-FEED_URI="C:/Users/biapt/Documents/MATLAB/pcpart%(time)s.csv"
+FEED_URI="file://"
