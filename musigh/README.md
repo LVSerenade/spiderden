@@ -1,4 +1,4 @@
-# Musigh Spider
+# Musigh Spider 🎵
 This is a spider for the website: [Musigh.com](http://www.musigh.com)
 The website look like its about to stop being useable soon so I decided to save the songs he shared with us to a S3 bucket.
 
