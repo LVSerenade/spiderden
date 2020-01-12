@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+from dotenv import load_dotenv
+from pathlib import Path  # python3 only
+import os
+
+load_dotenv(dotenv_path='../../.env')
 
 # Scrapy settings for pc_part_picker project
 #
@@ -27,7 +32,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -53,8 +58,12 @@ ROBOTSTXT_OBEY = True
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'pc_part_picker.middlewares.PcPartPickerDownloaderMiddleware': 543,
+#    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
 #}
+
+
+#ROTATING_PROXY_LIST = [
+#]
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -89,4 +98,4 @@ AUTOTHROTTLE_MAX_DELAY = 60
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 FEED_FORMAT="csv"
-FEED_URI="file://"
+#FEED_URI=os.getenv("DESKTOP_STORE")
