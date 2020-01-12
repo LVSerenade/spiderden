@@ -68,4 +68,9 @@ _Not all fields are always filled, even for the price, rating and reviews_
 _Similarly some of the fields are empty for some data points_
 
 # Note
-Also, the dataset is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
+The dataset generated from the spiders is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
+
+The difficulty of scraping this website is not high, but not easy either. They have various measure in place that stop the crawlers (like loading the important part with a second post call after the page as loaded) and checking if the frequency of the ip address making the request is human possible. If you don't throttle the frequency a Captcha will stop you and you will get a rate limit.
+
+# Contribution
+Screenshots taken from [pc part picker](https://pcpartpicker.com/) at 2020-01-11.
