@@ -89,6 +89,32 @@ Finally the spider take the reviews that are given by the pc part community and 
 - reviews
 
 ## Mother Board
+- manufacturer
+- part #
+- socket / cpu
+- form factor
+- ram slots
+- max ram
+- color
+- chipset
+- memory type
+- memory slots
+- memory speed *
+- sli/crossfire
+- pci-e x16 slots
+- pci-e x8 slots
+- pci-e x4 slots
+- pci-e x1 slots
+- pci slots
+- onboard ethernet
+- sata 6 gb/s
+- m.2 slots
+- msata slots
+- oboard video
+- onboard usb3.0 headers
+- supports ecc
+- wireless networking
+- raid support
 
 ## Memory
 - manufacturer
