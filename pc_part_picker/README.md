@@ -1,6 +1,16 @@
-# PC Part Picker Spider
+# PC Part Picker Spiders
 These spiders can crawl the website [pc part picker](https://pcpartpicker.com/) for the information on the CPU and the memory parts.
 If you use the crawlers be gentle on the website (delay of 1sec for download), faster than that you will get blocked.
+
+# What they can scrape
+- [CPU](https://pcpartpicker.com/products/cpu/) -> `cpu_spider.py`
+- [CPU Cooler](https://pcpartpicker.com/products/cpu-cooler/) -> `cpu_cooler_spider.py`
+- [Motherboard](https://pcpartpicker.com/products/motherboard/) -> `motherboard_spider.py`
+- [Memory](https://pcpartpicker.com/products/memory/) -> `memory_spider.py`
+- [Storage](https://pcpartpicker.com/products/internal-hard-drive/) -> `storage_spider.py`
+- [Video Card](https://pcpartpicker.com/products/video-card/) -> `video_card_spider.py`
+- [Power Supply](https://pcpartpicker.com/products/power-supply/) -> `power_supply_spider.py`
+- [Case](https://pcpartpicker.com/products/case/) -> `case_spider.py`
 
 # How it work
 The first step the memory or the cpu crawler undertake is to get the list of all the part on the website:
