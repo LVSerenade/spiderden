@@ -3,17 +3,32 @@ These spiders can crawl the website [pc part picker](https://pcpartpicker.com/) 
 If you use the crawlers be gentle on the website (delay of 1sec for download), faster than that you will get blocked.
 
 # What they can scrape
-- [CPU](https://pcpartpicker.com/products/cpu/) -> `cpu_spider.py`
-- [CPU Cooler](https://pcpartpicker.com/products/cpu-cooler/) -> `cpu_cooler_spider.py`
-- [Motherboard](https://pcpartpicker.com/products/motherboard/) -> `motherboard_spider.py`
-- [Memory](https://pcpartpicker.com/products/memory/) -> `memory_spider.py`
-- [Storage](https://pcpartpicker.com/products/internal-hard-drive/) -> `storage_spider.py`
-- [Video Card](https://pcpartpicker.com/products/video-card/) -> `video_card_spider.py`
-- [Power Supply](https://pcpartpicker.com/products/power-supply/) -> `power_supply_spider.py`
-- [Case](https://pcpartpicker.com/products/case/) -> `case_spider.py`
+- [CPU](https://pcpartpicker.com/products/cpu/) -> `cpu_spider.py` = cpu
+- [CPU Cooler](https://pcpartpicker.com/products/cpu-cooler/) -> `cpu_cooler_spider.py` = cpucooler
+- [Motherboard](https://pcpartpicker.com/products/motherboard/) -> `motherboard_spider.py` = motherboard
+- [Memory](https://pcpartpicker.com/products/memory/) -> `memory_spider.py` = memory
+- [Storage](https://pcpartpicker.com/products/internal-hard-drive/) -> `storage_spider.py` = storage
+- [Video Card](https://pcpartpicker.com/products/video-card/) -> `video_card_spider.py` = videocard
+- [Power Supply](https://pcpartpicker.com/products/power-supply/) -> `power_supply_spider.py` = powersupply
+- [Case](https://pcpartpicker.com/products/case/) -> `case_spider.py` = case
+
+# Requirements
+- Python 3.7 and above
+- Pip
+
+# How to use
+
+1. Open up your terminal and `cd` into the spiderden folder, make sure that you have Python 3 installed with pip.
+2. Create a virtual environment and activate it (_optional_)
+3. run `pip install -r requirements.txt` (_might take a while_)
+4. go into the pc_part_picker folder by doing `cd pc_part_picker`
+5. run the spider you want by doing `scrapy crawl _____ -o ______.csv` where the first blank is the name of the spider you want to launch and the second blank is the name of your output. The name of the spider are listed above in the _What they can scrape_ section.
+6. Wait for the spider to finish running.
+
+You can of course edit the code to fit your needs.
 
 # How it work
-The first step the memory or the cpu crawler undertake is to get the list of all the part on the website:
+The first step the crawlers undertake is to get the list of all the part on the website:
 
 ![Step 0 of how it work](https://github.com/yacineMahdid/spiderden/blob/master/media/pc_part_picker/target_0.png)
 
