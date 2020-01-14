@@ -1,9 +1,35 @@
-# PC Part Picker Spider
+# PC Part Picker Spiders
 These spiders can crawl the website [pc part picker](https://pcpartpicker.com/) for the information on the CPU and the memory parts.
 If you use the crawlers be gentle on the website (delay of 1sec for download), faster than that you will get blocked.
 
+# What they can scrape
+Here is the final dataset the spiders can scrape : [S3 Bucket Link]()
+- [CPU](https://pcpartpicker.com/products/cpu/) -> `cpu_spider.py` = cpu
+- [CPU Cooler](https://pcpartpicker.com/products/cpu-cooler/) -> `cpu_cooler_spider.py` = cpucooler
+- [Motherboard](https://pcpartpicker.com/products/motherboard/) -> `motherboard_spider.py` = motherboard
+- [Memory](https://pcpartpicker.com/products/memory/) -> `memory_spider.py` = memory
+- [Storage](https://pcpartpicker.com/products/internal-hard-drive/) -> `storage_spider.py` = storage
+- [Video Card](https://pcpartpicker.com/products/video-card/) -> `video_card_spider.py` = videocard
+- [Power Supply](https://pcpartpicker.com/products/power-supply/) -> `power_supply_spider.py` = powersupply
+- [Case](https://pcpartpicker.com/products/case/) -> `case_spider.py` = case
+
+# Requirements
+- Python 3.7 and above
+- Pip
+
+# How to use
+
+1. Open up your terminal and `cd` into the spiderden folder, make sure that you have Python 3 installed with pip.
+2. Create a virtual environment and activate it (_optional_)
+3. run `pip install -r requirements.txt` (_might take a while_)
+4. go into the pc_part_picker folder by doing `cd pc_part_picker`
+5. run the spider you want by doing `scrapy crawl _____ -o ______.csv` where the first blank is the name of the spider you want to launch and the second blank is the name of your output. The name of the spider are listed above in the _What they can scrape_ section.
+6. Wait for the spider to finish running.
+
+You can of course edit the code to fit your needs.
+
 # How it work
-The first step the memory or the cpu crawler undertake is to get the list of all the part on the website:
+The first step the crawlers undertake is to get the list of all the part on the website:
 
 ![Step 0 of how it work](https://github.com/yacineMahdid/spiderden/blob/master/media/pc_part_picker/target_0.png)
 
@@ -47,7 +73,48 @@ Finally the spider take the reviews that are given by the pc part community and 
 - rating	
 - reviews
 
-_Not all fields are always filled, even for the price, rating and reviews_
+## CPU Cooler
+- manufacturer
+- model
+- part #
+- fan rpm
+- noise level
+- height
+- bearing
+- cpu socket 
+- water cooled
+- fanless
+- prices
+- rating
+- reviews
+
+## Mother Board
+- manufacturer
+- part #
+- socket / cpu
+- form factor
+- ram slots
+- max ram
+- color
+- chipset
+- memory type
+- memory slots
+- memory speed *
+- sli/crossfire
+- pci-e x16 slots
+- pci-e x8 slots
+- pci-e x4 slots
+- pci-e x1 slots
+- pci slots
+- onboard ethernet
+- sata 6 gb/s
+- m.2 slots
+- msata slots
+- oboard video
+- onboard usb3.0 headers
+- supports ecc
+- wireless networking
+- raid support
 
 ## Memory
 - manufacturer
@@ -64,8 +131,29 @@ _Not all fields are always filled, even for the price, rating and reviews_
 - heat spreader
 - prices
 - rating
+- reviews
 
-_Similarly some of the fields are empty for some data points_
+## Storage
+- manufacturer
+- part #
+- capacity
+- price / gb
+- type
+- cache
+- form factor
+- interface
+- nvme
+- prices
+- rating
+- reviews
+
+## Video Card
+
+## Power Supply
+
+## Case
+
+_Not all fields are always filled, even for the price, rating and reviews_
 
 # Note
 The dataset generated from the spiders is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
