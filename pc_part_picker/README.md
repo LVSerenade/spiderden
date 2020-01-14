@@ -3,6 +3,7 @@ These spiders can crawl the website [pc part picker](https://pcpartpicker.com/) 
 If you use the crawlers be gentle on the website (delay of 1sec for download), faster than that you will get blocked.
 
 # What they can scrape
+Here is the final dataset the spiders can scrape : [S3 Bucket Link]()
 - [CPU](https://pcpartpicker.com/products/cpu/) -> `cpu_spider.py` = cpu
 - [CPU Cooler](https://pcpartpicker.com/products/cpu-cooler/) -> `cpu_cooler_spider.py` = cpucooler
 - [Motherboard](https://pcpartpicker.com/products/motherboard/) -> `motherboard_spider.py` = motherboard
@@ -72,7 +73,9 @@ Finally the spider take the reviews that are given by the pc part community and 
 - rating	
 - reviews
 
-_Not all fields are always filled, even for the price, rating and reviews_
+## CPU Cooler
+
+## Mother Board
 
 ## Memory
 - manufacturer
@@ -90,7 +93,26 @@ _Not all fields are always filled, even for the price, rating and reviews_
 - prices
 - rating
 
-_Similarly some of the fields are empty for some data points_
+## Storage
+- manufacturer
+- part #
+- capacity
+- price / gb
+- type
+- cache
+- form factor
+- interface
+- nvme
+- prices
+- rating
+
+## Video Card
+
+## Power Supply
+
+## Case
+
+_Not all fields are always filled, even for the price, rating and reviews_
 
 # Note
 The dataset generated from the spiders is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
