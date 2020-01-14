@@ -74,6 +74,19 @@ Finally the spider take the reviews that are given by the pc part community and 
 - reviews
 
 ## CPU Cooler
+- manufacturer
+- model
+- part #
+- fan rpm
+- noise level
+- height
+- bearing
+- cpu socket 
+- water cooled
+- fanless
+- prices
+- rating
+- reviews
 
 ## Mother Board
 
@@ -92,6 +105,7 @@ Finally the spider take the reviews that are given by the pc part community and 
 - heat spreader
 - prices
 - rating
+- reviews
 
 ## Storage
 - manufacturer
@@ -105,6 +119,7 @@ Finally the spider take the reviews that are given by the pc part community and 
 - nvme
 - prices
 - rating
+- reviews
 
 ## Video Card
 
