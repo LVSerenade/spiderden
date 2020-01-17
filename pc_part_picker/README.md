@@ -13,6 +13,8 @@ Here is the final dataset the spiders can scrape : [S3 Bucket Link]()
 - [Power Supply](https://pcpartpicker.com/products/power-supply/) -> `power_supply_spider.py` = powersupply
 - [Case](https://pcpartpicker.com/products/case/) -> `case_spider.py` = case
 
+An important point to note is that this website is dynamic and the content vary from time to time. If you want an up to date 
+
 # Requirements
 - Python 3.7 and above
 - Pip
