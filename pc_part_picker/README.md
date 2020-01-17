@@ -1,22 +1,40 @@
-# PC Part Picker Spiders
-These spiders can crawl the website [pc part picker](https://pcpartpicker.com/) for the information on the CPU and the memory parts.
+# PC Part Picker Spider
+This spiders can crawl the website [pc part picker](https://pcpartpicker.com/) for the information on cases, fan, cpu, cpu cooler, memory, motherboard, external hard drive etc..
 If you use the crawlers be gentle on the website (delay of 1sec for download), faster than that you will get blocked.
 
 # What they can scrape
 Here is the final dataset the spiders can scrape : [S3 Bucket Link]()
-- [CPU](https://pcpartpicker.com/products/cpu/) -> `cpu_spider.py` = cpu
-- [CPU Cooler](https://pcpartpicker.com/products/cpu-cooler/) -> `cpu_cooler_spider.py` = cpucooler
-- [Motherboard](https://pcpartpicker.com/products/motherboard/) -> `motherboard_spider.py` = motherboard
-- [Memory](https://pcpartpicker.com/products/memory/) -> `memory_spider.py` = memory
-- [Storage](https://pcpartpicker.com/products/internal-hard-drive/) -> `storage_spider.py` = storage
-- [Video Card](https://pcpartpicker.com/products/video-card/) -> `video_card_spider.py` = videocard
-- [Power Supply](https://pcpartpicker.com/products/power-supply/) -> `power_supply_spider.py` = powersupply
-- [Case](https://pcpartpicker.com/products/case/) -> `case_spider.py` = case
+It includes data from all of these categories of product:
+- case
+- case accessory
+- case fan
+- cpu
+- cpu cooler
+- external hard drive
+- fan controller 
+- headphones
+- internal hard drive
+- keyboard
+- laptop
+- memory
+- monitor
+- motherboard
+- mouse
+- optical drive
+- os
+- power supply
+- software
+- sound card
+- thermal paste
+- ups
+- video card
+- wired network card
+- wireless network card
 
-An important point to note is that this website is dynamic and the content vary from time to time. If you want an up to date 
+An important point to note is that this website is dynamic and the content vary from time to time. If you want an up to date version of the data you will need to run the crawler again.
 
 # Requirements
-- Python 3.7 and above
+- Python 3
 - Pip
 
 # How to use
@@ -25,13 +43,14 @@ An important point to note is that this website is dynamic and the content vary 
 2. Create a virtual environment and activate it (_optional_)
 3. run `pip install -r requirements.txt` (_might take a while_)
 4. go into the pc_part_picker folder by doing `cd pc_part_picker`
-5. run the spider you want by doing `scrapy crawl _____ -o ______.csv` where the first blank is the name of the spider you want to launch and the second blank is the name of your output. The name of the spider are listed above in the _What they can scrape_ section.
-6. Wait for the spider to finish running.
+5. run the spider you want by doing `scrapy crawl parts`. This will take a while with the current configuration and will output a json named all_parts.json which contain all parts. 
+6. If you want separate csv files per category run `convert_csv.py`. There are different specificaitons per category so having everything into one CSV wasn't possible.
 
 You can of course edit the code to fit your needs.
 
 # How it work
-The first step the crawlers undertake is to get the list of all the part on the website:
+The first step the crawlers undertake is to get the list of all the part category on the website. 
+Then it use these category pages to get a list of all the parts that matches a given category:
 
 ![Step 0 of how it work](https://github.com/yacineMahdid/spiderden/blob/master/media/pc_part_picker/target_0.png)
 
@@ -49,116 +68,42 @@ Finally the spider take the reviews that are given by the pc part community and 
 ![Step 3 of how it work](https://github.com/yacineMahdid/spiderden/blob/master/media/pc_part_picker/target_3.png)
 
 # Dataset Composition:
-## CPU 
-- manufacturer
-- model	
-- part #	
-- core count	
-- core clock	
-- boost clock	
-- tdp	
-- series	
-- microarchitecture	
-- core family	
-- socket	
-- integrated graphics	
-- maximum supported memory	
-- ecc support	
-- packaging	
-- includes cpu cooler	
-- l1 cache	
-- l2 cache	
-- l3 cache	
-- lithography	
-- simultaneous multithreading	
-- prices	
-- rating	
-- reviews
+Total Number of Parts Scraped : **39668** parts
 
-## CPU Cooler
-- manufacturer
-- model
-- part #
-- fan rpm
-- noise level
-- height
-- bearing
-- cpu socket 
-- water cooled
-- fanless
-- prices
-- rating
-- reviews
+## Breakdown of parts per category:
+- cpu : 1213 parts
+- ups : 658 parts
+- thermal-paste : 103 parts
+- fan-controller : 36 parts
+- case-fan : 1495 parts
+- case-accessory : 8 parts
+- laptop : 307 parts
+- external-hard-drive : 319 parts
+- monitor : 2770 parts
+- software : 143 parts
+- os : 56 parts
+- optical-drive : 217 parts
+- power-supply : 2027 parts
+- case : 3880 parts
+- video-card : 4178 parts
+- internal-hard-drive : 3788 parts
+- speakers : 195 parts
+- mouse : 1949 parts
+- keyboard : 2262 parts
+- headphones : 2289 parts
+- wireless-network-card : 303 parts
+- wired-network-card : 120 parts
+- sound-card : 71 parts
+- memory : 7127 parts
+- motherboard : 3043 parts
+- cpu-cooler : 1111 parts
 
-## Mother Board
-- manufacturer
-- part #
-- socket / cpu
-- form factor
-- ram slots
-- max ram
-- color
-- chipset
-- memory type
-- memory slots
-- memory speed *
-- sli/crossfire
-- pci-e x16 slots
-- pci-e x8 slots
-- pci-e x4 slots
-- pci-e x1 slots
-- pci slots
-- onboard ethernet
-- sata 6 gb/s
-- m.2 slots
-- msata slots
-- oboard video
-- onboard usb3.0 headers
-- supports ecc
-- wireless networking
-- raid support
 
-## Memory
-- manufacturer
-- part #
-- speed
-- type
-- modules
-- price / gb
-- color
-- cas latency
-- voltage
-- timing
-- ecc / registered
-- heat spreader
-- prices
-- rating
-- reviews
-
-## Storage
-- manufacturer
-- part #
-- capacity
-- price / gb
-- type
-- cache
-- form factor
-- interface
-- nvme
-- prices
-- rating
-- reviews
-
-## Video Card
-
-## Power Supply
-
-## Case
-
+The fields per category are highly variable however, three fields are always there: **price**, **rating** and **reviews**
 _Not all fields are always filled, even for the price, rating and reviews_
 
 # Note
-The dataset generated from the spiders is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
+The dataset generated from the spider is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
 
 The difficulty of scraping this website is not high, but not easy either. They have various measure in place that stop the crawlers (like loading the important part with a second post call after the page as loaded) and checking if the frequency of the ip address making the request is human possible. If you don't throttle the frequency a Captcha will stop you and you will get a rate limit.
 
