@@ -3,7 +3,7 @@ This spiders can crawl the website [pc part picker](https://pcpartpicker.com/) f
 If you use the crawlers be gentle on the website (delay of 1sec for download), faster than that you will get blocked.
 
 # What they can scrape
-Here is the final dataset the spiders can scrape : [S3 Bucket Link]()
+Here is the final dataset the spiders can scrape : [S3 Bucket Link](https://web-scraping-data-yacinemahdid.s3-us-west-2.amazonaws.com/pc_parts.zip)
 It includes data from all of these categories of product:
 - cpu : 1213 parts
 - ups : 658 parts
