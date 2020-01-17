@@ -5,31 +5,37 @@ If you use the crawlers be gentle on the website (delay of 1sec for download), f
 # What they can scrape
 Here is the final dataset the spiders can scrape : [S3 Bucket Link]()
 It includes data from all of these categories of product:
-- case
-- case accessory
-- case fan
-- cpu
-- cpu cooler
-- external hard drive
-- fan controller 
-- headphones
-- internal hard drive
-- keyboard
-- laptop
-- memory
-- monitor
-- motherboard
-- mouse
-- optical drive
-- os
-- power supply
-- software
-- sound card
-- thermal paste
-- ups
-- video card
-- wired network card
-- wireless network card
+- cpu : 1213 parts
+- ups : 658 parts
+- thermal-paste : 103 parts
+- fan-controller : 36 parts
+- case-fan : 1495 parts
+- case-accessory : 8 parts
+- laptop : 307 parts
+- external-hard-drive : 319 parts
+- monitor : 2770 parts
+- software : 143 parts
+- os : 56 parts
+- optical-drive : 217 parts
+- power-supply : 2027 parts
+- case : 3880 parts
+- video-card : 4178 parts
+- internal-hard-drive : 3788 parts
+- speakers : 195 parts
+- mouse : 1949 parts
+- keyboard : 2262 parts
+- headphones : 2289 parts
+- wireless-network-card : 303 parts
+- wired-network-card : 120 parts
+- sound-card : 71 parts
+- memory : 7127 parts
+- motherboard : 3043 parts
+- cpu-cooler : 1111 parts
+
+Total Number of Parts Scraped : **39668** parts
+
+The fields per category are highly variable however, three fields are always there: **price**, **rating** and **reviews**
+_Not all fields are always filled, even for the price, rating and reviews_
 
 An important point to note is that this website is dynamic and the content vary from time to time. If you want an up to date version of the data you will need to run the crawler again.
 
@@ -67,40 +73,6 @@ Finally the spider take the reviews that are given by the pc part community and 
 
 ![Step 3 of how it work](https://github.com/yacineMahdid/spiderden/blob/master/media/pc_part_picker/target_3.png)
 
-# Dataset Composition:
-Total Number of Parts Scraped : **39668** parts
-
-## Breakdown of parts per category:
-- cpu : 1213 parts
-- ups : 658 parts
-- thermal-paste : 103 parts
-- fan-controller : 36 parts
-- case-fan : 1495 parts
-- case-accessory : 8 parts
-- laptop : 307 parts
-- external-hard-drive : 319 parts
-- monitor : 2770 parts
-- software : 143 parts
-- os : 56 parts
-- optical-drive : 217 parts
-- power-supply : 2027 parts
-- case : 3880 parts
-- video-card : 4178 parts
-- internal-hard-drive : 3788 parts
-- speakers : 195 parts
-- mouse : 1949 parts
-- keyboard : 2262 parts
-- headphones : 2289 parts
-- wireless-network-card : 303 parts
-- wired-network-card : 120 parts
-- sound-card : 71 parts
-- memory : 7127 parts
-- motherboard : 3043 parts
-- cpu-cooler : 1111 parts
-
-
-The fields per category are highly variable however, three fields are always there: **price**, **rating** and **reviews**
-_Not all fields are always filled, even for the price, rating and reviews_
 
 # Note
 The dataset generated from the spider is in a very raw format as the spider stored the data as it was shown on the page after the html was stripped off. There is some pre-processing that should be done on the dataset before being useable. However, I didn't want to bias the dataset with a specific pre-processing methodology.
