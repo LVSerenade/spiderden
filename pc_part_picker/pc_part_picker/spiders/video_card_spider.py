@@ -2,6 +2,18 @@ import scrapy
 import re
 from bs4 import BeautifulSoup
 
+def get_data(soup):
+    spec_value = soup.find("ul")
+    
+    if spec_value != None:
+        spec_value = spec_value.text.replace('\n',' ').strip().lower()
+    else:
+        spec_value = soup.find("p")
+        if spec_value != None:
+            spec_value = spec_value.text.strip().lower()
+
+    return spec_value
+
 class VideoCardPartSpider(scrapy.Spider):
     name = "videocard"
     base_url = 'https://pcpartpicker.com/'
@@ -62,9 +74,7 @@ class VideoCardPartSpider(scrapy.Spider):
             >>> yield scrapy.Request(product_url, callback=self.parse_cpu)
         '''
         # Default of scraped info (nothing in it)
-        scraped_info = {
-            'TODO':'TODO'
-        }
+        scraped_info = {}
 
         specs_list = []
         specs = response.css("div.specs").getall()
@@ -82,14 +92,7 @@ class VideoCardPartSpider(scrapy.Spider):
 
             # Get the type and the value (h3 and p respectively)
             spec_type = soup.find("h3").text.lower()
-            if spec_type == 'memory speed':
-                spec_value = soup.find("ul")
-                if spec_value != None:
-                    spec_value = spec_value.text.replace('\n',' ').strip().lower()
-            else:
-                spec_value = soup.find("p")
-                if spec_value != None:
-                    spec_value = spec_value.text.strip().lower()
+            spec_value = get_data(soup)
 
             # Assign it at the right spot in the dictionary
             scraped_info[spec_type] = spec_value
