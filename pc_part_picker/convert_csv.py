@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Variable Initialization
-output_folder = "C:/Users/biapt/Desktop/data/pc_parts/"
+output_folder = ""
 
 # Load the JSON file into a list of dictionary
 with open('all_parts.json') as data_file:
